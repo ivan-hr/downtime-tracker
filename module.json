@@ -1,0 +1,53 @@
+{
+  "id": "downtime-tracker",
+  "title": "downtime-tracker",
+  "description": "Logbuch für Savage Shadowrun: hält Runs mit Beschreibung und die Downtime dazwischen in 5-Tage-Blöcken fest, inklusive Vorhaben der Charaktere und monatlicher Lebensstil-Kosten (30 Tage).",
+  "authors": [
+    {
+      "name": "ivan-hr",
+      "discord": "user41635"
+    }
+  ],
+  "license": "MIT",
+  "version": "0.4.7",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "swade",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.2.0",
+          "verified": "6.0.4"
+        }
+      }
+    ]
+  },
+  "socket": true,
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/downtime.css"
+  ],
+  "languages": [
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "url": "https://github.com/ivan-hr/downtime-tracker",
+  "manifest": "https://raw.githubusercontent.com/ivan-hr/downtime-tracker/main/module.json",
+  "download": "https://github.com/ivan-hr/downtime-tracker/releases/latest/download/module.zip",
+  "bugs": "https://github.com/ivan-hr/downtime-tracker/issues",
+  "readme": "https://github.com/ivan-hr/downtime-tracker#readme"
+}

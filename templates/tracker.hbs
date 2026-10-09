@@ -1,0 +1,404 @@
+<div class="dt-body">
+
+  {{#if showSettings}}
+  <section class="dt-card dt-settings">
+    <div class="dt-row dt-between">
+      <h3><i class="fa-solid fa-gear"></i> {{localize "DOWNTIME.Activities.Title"}}</h3>
+      <button type="button" class="dt-btn dt-small" data-action="toggleSettings">{{localize "DOWNTIME.Settings.Close"}}</button>
+    </div>
+    <p class="dt-hint">{{localize "DOWNTIME.Activities.Hint"}}</p>
+    <ul class="dt-activity-list">
+      {{#each activities}}
+      <li>
+        <span>{{name}}</span>
+        <button type="button" class="dt-remove" data-action="moveActivity" data-index="{{index}}" data-dir="-1" aria-label="{{localize "DOWNTIME.Activities.Up"}}" data-tooltip="DOWNTIME.Activities.Up" {{#if first}}disabled{{/if}}><i class="fa-solid fa-arrow-up"></i></button>
+        <button type="button" class="dt-remove" data-action="moveActivity" data-index="{{index}}" data-dir="1" aria-label="{{localize "DOWNTIME.Activities.Down"}}" data-tooltip="DOWNTIME.Activities.Down" {{#if last}}disabled{{/if}}><i class="fa-solid fa-arrow-down"></i></button>
+        <button type="button" class="dt-remove" data-action="removeActivity" data-index="{{index}}" aria-label="{{localize "DOWNTIME.Activities.Remove"}}" data-tooltip="DOWNTIME.Activities.Remove"><i class="fa-solid fa-trash"></i></button>
+      </li>
+      {{else}}
+      <li class="dt-hint">{{localize "DOWNTIME.Activities.Empty"}}</li>
+      {{/each}}
+    </ul>
+    <div class="dt-row">
+      <input type="text" name="newActivity" class="dt-grow" maxlength="80" placeholder="{{localize "DOWNTIME.Activities.Placeholder"}}" aria-label="{{localize "DOWNTIME.Activities.New"}}">
+      <button type="button" class="dt-btn" data-action="addActivity"><i class="fa-solid fa-plus"></i> {{localize "DOWNTIME.Activities.Add"}}</button>
+    </div>
+
+    <h3 class="dt-settings-sub"><i class="fa-solid fa-house"></i> {{localize "DOWNTIME.Qualities.Title"}}</h3>
+    <p class="dt-hint">{{localize "DOWNTIME.Qualities.Hint"}}</p>
+    <div class="dt-quality-defs">
+      <div class="dt-quality-def dt-quality-head">
+        <span>{{localize "DOWNTIME.Qualities.Name"}}</span>
+        <span>LP</span>
+        <span>{{localize "DOWNTIME.Qualities.Effect"}}</span>
+        <span></span>
+      </div>
+      {{#each qualityDefs}}
+      <div class="dt-quality-def" data-quality-id="{{id}}">
+        <input type="text" name="q.name" value="{{name}}" maxlength="80" aria-label="{{localize "DOWNTIME.Qualities.Name"}}">
+        <input type="number" name="q.lp" value="{{lp}}" min="-10" max="10" step="1" aria-label="LP">
+        <input type="text" name="q.effect" value="{{effect}}" maxlength="300" aria-label="{{localize "DOWNTIME.Qualities.Effect"}}">
+        <button type="button" class="dt-remove" data-action="removeQuality" aria-label="{{localize "DOWNTIME.Qualities.Remove"}}" data-tooltip="DOWNTIME.Qualities.Remove"><i class="fa-solid fa-trash"></i></button>
+      </div>
+      {{/each}}
+      <div class="dt-quality-def">
+        <input type="text" name="newQualityName" maxlength="80" placeholder="{{localize "DOWNTIME.Qualities.NamePlaceholder"}}" aria-label="{{localize "DOWNTIME.Qualities.New"}}">
+        <input type="number" name="newQualityLp" value="1" min="-10" max="10" step="1" aria-label="LP">
+        <input type="text" name="newQualityEffect" maxlength="300" placeholder="{{localize "DOWNTIME.Qualities.EffectPlaceholder"}}" aria-label="{{localize "DOWNTIME.Qualities.Effect"}}">
+        <button type="button" class="dt-remove" data-action="addQuality" aria-label="{{localize "DOWNTIME.Qualities.Add"}}" data-tooltip="DOWNTIME.Qualities.Add"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </div>
+  </section>
+  {{/if}}
+
+  <nav class="dt-tabs">
+    <button type="button" class="dt-tab {{#if tabLog}}active{{/if}}" data-action="setTab" data-tab="log"><i class="fa-solid fa-hourglass-half"></i> {{localize "DOWNTIME.Lifestyle.TabLog"}}</button>
+    <button type="button" class="dt-tab {{#if tabLifestyles}}active{{/if}}" data-action="setTab" data-tab="lifestyles"><i class="fa-solid fa-house"></i> {{localize "DOWNTIME.Lifestyle.Tab"}}</button>
+  </nav>
+
+  {{#if tabLifestyles}}
+  <section class="dt-card">
+    <div class="dt-row dt-between">
+      <h3>{{localize "DOWNTIME.Lifestyle.Tab"}}</h3>
+      <button type="button" class="dt-btn dt-small" data-action="toggleHelp">
+        <i class="fa-solid fa-circle-question"></i> {{#if showHelp}}{{localize "DOWNTIME.Lifestyle.Help.Hide"}}{{else}}{{localize "DOWNTIME.Lifestyle.Help.Toggle"}}{{/if}}
+      </button>
+    </div>
+    {{#if showHelp}}
+    <div class="dt-help">
+      <p>{{localize "DOWNTIME.Lifestyle.Help.Intro"}}</p>
+      <p>{{localize "DOWNTIME.Lifestyle.Help.Tier"}}</p>
+      <p>{{localize "DOWNTIME.Lifestyle.Help.Acceptance"}}</p>
+      <p>{{localize "DOWNTIME.Lifestyle.Help.Healing"}}</p>
+      <p>{{localize "DOWNTIME.Lifestyle.Help.Payment"}}</p>
+      {{#each helpCategories}}
+      <div class="dt-help-category">
+        <h4>{{label}}</h4>
+        <p>{{detail}}</p>
+        {{#if zones}}
+        {{#each levels}}
+        <article class="dt-help-zone">
+          <h5>{{label}} <span>{{lpLabel}}</span></h5>
+          {{{text}}}
+        </article>
+        {{/each}}
+        <article class="dt-help-zone">
+          <h5>{{localize "DOWNTIME.Lifestyle.Help.ZoneTermsTitle"}}</h5>
+          {{{terms}}}
+        </article>
+        {{else}}
+        <table>
+          {{#each levels}}
+          <tr><th>{{label}}</th><td class="dt-help-lp">{{lp}} LP</td><td>{{text}}</td></tr>
+          {{/each}}
+        </table>
+        {{/if}}
+      </div>
+      {{/each}}
+      <p class="dt-hint">{{localize "DOWNTIME.Lifestyle.Help.Warnings"}}</p>
+    </div>
+    {{/if}}
+    <div class="dt-pool" data-drop="lifestyle">
+      <span class="dt-hint">{{#if isGM}}{{localize "DOWNTIME.Lifestyle.DropGM"}}{{else}}{{localize "DOWNTIME.Lifestyle.Drop"}}{{/if}}</span>
+    </div>
+  </section>
+
+  {{#each lifestyles}}
+  <section class="dt-card dt-lifestyle" data-lifestyle-id="{{id}}">
+    <div class="dt-row dt-between">
+      <span class="dt-entry-who"><img src="{{img}}" alt="">{{name}}</span>
+      <input type="text" name="ls.title" class="dt-grow" value="{{title}}" maxlength="80" placeholder="{{localize "DOWNTIME.Lifestyle.TitlePlaceholder"}}" aria-label="{{localize "DOWNTIME.Lifestyle.TitleLabel"}}" {{#unless canEdit}}disabled{{/unless}}>
+      <span class="dt-ls-cost"><strong>{{costLabel}}</strong> {{localize "DOWNTIME.Lifestyle.PerMonth"}} · {{lpShort}}</span>
+      {{#if canEdit}}
+      <button type="button" class="dt-remove" data-action="deleteLifestyle" aria-label="{{localize "DOWNTIME.Lifestyle.Delete"}}" data-tooltip="DOWNTIME.Lifestyle.Delete"><i class="fa-solid fa-trash"></i></button>
+      {{/if}}
+    </div>
+
+    <div class="dt-ls-categories">
+      {{#each categories}}
+      <label class="dt-field">
+        <span class="dt-has-tooltip" data-tooltip="{{tooltip}}">{{label}} <i class="fa-solid fa-circle-question"></i></span>
+        <select name="ls.{{key}}" {{#unless ../canEdit}}disabled{{/unless}}>
+          {{#each options}}
+          <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+          {{/each}}
+        </select>
+      </label>
+      {{/each}}
+    </div>
+
+    <div class="dt-row dt-ls-costrow">
+      <label class="dt-field dt-ls-roommates">
+        <span class="dt-has-tooltip" data-tooltip="DOWNTIME.Lifestyle.RoommatesTooltip">{{localize "DOWNTIME.Lifestyle.Roommates"}} <i class="fa-solid fa-circle-question"></i></span>
+        <input type="number" name="ls.roommates" min="0" max="20" step="1" value="{{roommates}}" {{#unless canEdit}}disabled{{/unless}}>
+      </label>
+      <span class="dt-hint dt-grow">{{lpLabel}}{{#if breakdown}} · {{breakdown}}{{/if}}</span>
+    </div>
+
+    <div class="dt-field">
+      <span>{{localize "DOWNTIME.Lifestyle.Qualities"}}</span>
+      <ul class="dt-ls-qualities">
+        {{#each qualities}}
+        <li>
+          <div>
+            <strong>{{name}}</strong>
+            <span class="dt-ls-lp {{#if negative}}neg{{else}}pos{{/if}}">{{lpLabel}} LP</span>
+            {{#if removed}}<em class="dt-hint">{{localize "DOWNTIME.Lifestyle.QualityRemoved"}}</em>{{/if}}
+            {{#if effect}}<div class="dt-hint">{{effect}}</div>{{/if}}
+          </div>
+          {{#if ../canEdit}}
+          <button type="button" class="dt-remove" data-action="removeLifestyleQuality" data-quality-id="{{id}}" aria-label="{{localize "DOWNTIME.Lifestyle.RemoveQuality"}}" data-tooltip="DOWNTIME.Lifestyle.RemoveQuality"><i class="fa-solid fa-xmark"></i></button>
+          {{/if}}
+        </li>
+        {{else}}
+        <li class="dt-hint">{{localize "DOWNTIME.Lifestyle.NoQualities"}}</li>
+        {{/each}}
+      </ul>
+      {{#if canEdit}}
+      <select name="ls.addQuality" aria-label="{{localize "DOWNTIME.Lifestyle.AddQuality"}}">
+        <option value="" selected>{{localize "DOWNTIME.Lifestyle.AddQuality"}}</option>
+        <optgroup label="{{localize "DOWNTIME.Lifestyle.Positive"}}">
+          {{#each positive}}<option value="{{id}}">{{label}}</option>{{/each}}
+        </optgroup>
+        <optgroup label="{{localize "DOWNTIME.Lifestyle.Negative"}}">
+          {{#each negative}}<option value="{{id}}">{{label}}</option>{{/each}}
+        </optgroup>
+      </select>
+      {{/if}}
+    </div>
+
+    <div class="dt-field">
+      <span class="dt-has-tooltip" data-tooltip="DOWNTIME.Lifestyle.Extra.Tooltip">{{localize "DOWNTIME.Lifestyle.Extra.Title"}} <i class="fa-solid fa-circle-question"></i></span>
+      {{#if extras.length}}
+      <div class="dt-extras">
+        <div class="dt-extra dt-quality-head">
+          <span>{{localize "DOWNTIME.Qualities.Name"}}</span>
+          <span>{{localize "DOWNTIME.Lifestyle.Extra.Fixed"}}</span>
+          <span>{{localize "DOWNTIME.Lifestyle.Extra.Percent"}}</span>
+          <span></span>
+        </div>
+        {{#each extras}}
+        <div class="dt-extra" data-extra-id="{{id}}">
+          <input type="text" name="ls.extra.name" value="{{name}}" maxlength="80" aria-label="{{localize "DOWNTIME.Qualities.Name"}}" {{#unless ../canEdit}}disabled{{/unless}}>
+          <input type="number" name="ls.extra.fixed" value="{{fixed}}" min="0" step="100" aria-label="{{localize "DOWNTIME.Lifestyle.Extra.Fixed"}}" {{#unless ../canEdit}}disabled{{/unless}}>
+          <input type="number" name="ls.extra.percent" value="{{percent}}" min="0" max="100" step="1" aria-label="{{localize "DOWNTIME.Lifestyle.Extra.Percent"}}" {{#unless ../canEdit}}disabled{{/unless}}>
+          {{#if ../canEdit}}
+          <button type="button" class="dt-remove" data-action="removeExtra" aria-label="{{localize "DOWNTIME.Lifestyle.Extra.Remove"}}" data-tooltip="DOWNTIME.Lifestyle.Extra.Remove"><i class="fa-solid fa-xmark"></i></button>
+          {{else}}<span></span>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{else}}
+      <p class="dt-hint">{{localize "DOWNTIME.Lifestyle.Extra.None"}}</p>
+      {{/if}}
+      {{#if canEdit}}
+      <select name="ls.addExtra" aria-label="{{localize "DOWNTIME.Lifestyle.Extra.Add"}}">
+        <option value="" selected>{{localize "DOWNTIME.Lifestyle.Extra.Add"}}</option>
+        {{#each extraPresets}}<option value="{{key}}">{{label}}</option>{{/each}}
+      </select>
+      {{/if}}
+    </div>
+
+    <div class="dt-ls-summary">
+      <div class="dt-has-tooltip" data-tooltip="DOWNTIME.Lifestyle.TierTooltip"><span>{{localize "DOWNTIME.Lifestyle.Tier"}} <i class="fa-solid fa-circle-question"></i></span><strong>{{facts.tier}}</strong></div>
+      <div class="dt-has-tooltip" data-tooltip="DOWNTIME.Lifestyle.HealingTooltip"><span>{{localize "DOWNTIME.Lifestyle.Healing"}} <i class="fa-solid fa-circle-question"></i></span><strong>{{facts.healing}}</strong></div>
+      <div><span>{{localize "DOWNTIME.Lifestyle.Points"}}</span><strong>{{lpLabel}}</strong></div>
+      <div><span>{{localize "DOWNTIME.Lifestyle.Security"}}</span><strong>{{facts.lock}}</strong></div>
+      <div><span>{{localize "DOWNTIME.Lifestyle.GuardsLabel"}}</span><strong>{{facts.guards}}</strong></div>
+    </div>
+
+    {{#if warnings.length}}
+    <ul class="dt-ls-warnings">
+      {{#each warnings}}<li><i class="fa-solid fa-triangle-exclamation"></i> {{this}}</li>{{/each}}
+    </ul>
+    {{/if}}
+
+    <label class="dt-field">
+      <span>{{localize "DOWNTIME.Lifestyle.Notes"}}</span>
+      <textarea name="ls.notes" rows="2" maxlength="2000" placeholder="{{localize "DOWNTIME.Lifestyle.NotesPlaceholder"}}" {{#unless canEdit}}disabled{{/unless}}>{{notes}}</textarea>
+    </label>
+  </section>
+  {{else}}
+  <p class="dt-hint">{{localize "DOWNTIME.Lifestyle.Empty"}}</p>
+  {{/each}}
+  {{/if}}
+
+  {{#if tabLog}}
+  <section class="dt-card dt-status">
+    <div class="dt-status-top">
+      <strong>{{localize "DOWNTIME.Status.Month" number=status.month}}</strong>
+      <span>{{localize "DOWNTIME.Status.CampaignDay" day=status.campaignDay}}</span>
+    </div>
+    <div class="dt-track" role="img" aria-label="{{status.leftLabel}}">
+      <div class="dt-fill" style="transform: scaleX({{status.fill}})"></div>
+    </div>
+    <div class="dt-status-bottom">
+      <span>{{status.leftLabel}}</span>
+      {{#if status.dueMonths}}
+      <span class="dt-due">{{localize "DOWNTIME.Status.Unpaid" months=status.dueMonths}}</span>
+      {{/if}}
+    </div>
+    {{#if isGM}}
+    <div class="dt-row dt-tools">
+      <button type="button" class="dt-btn" data-action="writeJournal"><i class="fa-solid fa-book-open"></i> {{localize "DOWNTIME.Journal.Write"}}</button>
+      <button type="button" class="dt-btn" data-action="exportData"><i class="fa-solid fa-file-export"></i> {{localize "DOWNTIME.Data.Export"}}</button>
+      <button type="button" class="dt-btn" data-action="importData"><i class="fa-solid fa-file-import"></i> {{localize "DOWNTIME.Data.Import"}}</button>
+    </div>
+    {{/if}}
+  </section>
+
+  <section class="dt-card">
+    <div class="dt-row">
+      <label class="dt-field dt-grow">
+        <span>{{localize "DOWNTIME.Run.Select"}}</span>
+        <select name="selectRun" {{#unless runOptions.length}}disabled{{/unless}}>
+          {{#each runOptions}}
+          <option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+          {{/each}}
+        </select>
+      </label>
+      {{#if isGM}}
+      <button type="button" class="dt-btn" data-action="newRun"><i class="fa-solid fa-plus"></i> {{localize "DOWNTIME.Run.New"}}</button>
+      {{#if run}}
+      <button type="button" class="dt-btn dt-icon" data-action="deleteRun" data-tooltip="DOWNTIME.Run.Delete" aria-label="{{localize "DOWNTIME.Run.Delete"}}"><i class="fa-solid fa-trash"></i></button>
+      {{/if}}
+      {{/if}}
+    </div>
+
+    {{#if run}}
+    <div class="dt-row">
+      <label class="dt-field dt-grow">
+        <span>{{localize "DOWNTIME.Run.Name"}}</span>
+        <input type="text" name="runName" value="{{run.name}}" {{#unless isGM}}disabled{{/unless}}>
+      </label>
+      <label class="dt-field dt-duration">
+        <span>{{localize "DOWNTIME.Run.Days"}}</span>
+        <input type="number" name="runDays" min="0" max="365" step="1" value="{{run.runDays}}" {{#unless isGM}}disabled{{/unless}}>
+      </label>
+    </div>
+    {{#if isGM}}
+    <label class="dt-field">
+      <span>{{localize "DOWNTIME.Run.Description"}}</span>
+      <textarea name="runDescription" rows="4" maxlength="2000" placeholder="{{localize "DOWNTIME.Run.DescriptionPlaceholder"}}">{{run.description}}</textarea>
+    </label>
+    {{else if run.description}}
+    <div class="dt-field">
+      <span>{{localize "DOWNTIME.Run.Description"}}</span>
+      <p class="dt-description">{{run.description}}</p>
+    </div>
+    {{/if}}
+    <div class="dt-checks" role="group" aria-label="{{localize "DOWNTIME.Blocks.Label"}}">
+      <span class="dt-label">{{localize "DOWNTIME.Blocks.Label"}}</span>
+      {{#each checks}}
+      <label class="dt-chk">
+        <input type="checkbox" data-action="setBlocks" data-count="{{count}}" {{#if checked}}checked{{/if}} {{#unless @root.isGM}}disabled{{/unless}}>
+        <span>{{days}}</span>
+      </label>
+      {{/each}}
+      <strong class="dt-sum">{{blockSummary}}</strong>
+    </div>
+    {{else}}
+    <p class="dt-hint">{{#if isGM}}{{localize "DOWNTIME.Run.EmptyGM"}}{{else}}{{localize "DOWNTIME.Run.Empty"}}{{/if}}</p>
+    {{/if}}
+  </section>
+
+  <section class="dt-card">
+    <div class="dt-row dt-between">
+      <h3>{{localize "DOWNTIME.Timeline.Title"}}</h3>
+      {{#if canToggleMonths}}
+      <button type="button" class="dt-btn dt-small" data-action="toggleMonths">
+        {{#if showAllMonths}}{{localize "DOWNTIME.Timeline.HidePaid"}}{{else}}{{localize "DOWNTIME.Timeline.ShowPaid" count=hiddenMonths}}{{/if}}
+      </button>
+      {{/if}}
+    </div>
+    <div class="dt-legend">
+      <span><i class="dt-swatch run"></i>{{localize "DOWNTIME.Timeline.LegendRun"}}</span>
+      <span><i class="dt-swatch block"></i>{{localize "DOWNTIME.Timeline.LegendBlock"}}</span>
+      <span>{{localize "DOWNTIME.Timeline.LegendMonth"}}</span>
+    </div>
+    <div class="dt-timeline">
+      {{#each months}}
+      <div class="dt-month">
+        <div class="dt-month-label">
+          <span>{{localize "DOWNTIME.Month.Label" number=number}}</span>
+          {{#if ../isGM}}{{#if complete}}
+          <button type="button" class="dt-paid {{status}}" data-action="togglePaid" data-month="{{number}}" data-tooltip="DOWNTIME.Month.TogglePaid">{{statusLabel}}</button>
+          {{else}}<small class="{{status}}">{{statusLabel}}</small>{{/if}}
+          {{else}}<small class="{{status}}">{{statusLabel}}</small>{{/if}}
+        </div>
+        <div class="dt-days" role="img" aria-label="{{ariaLabel}}">
+          {{#each segments}}
+          {{#if runId}}
+          <button type="button" class="dt-seg {{type}} {{#if selected}}selected{{/if}}" style="grid-column: {{col}} / span {{span}}" data-action="selectRun" data-run-id="{{runId}}" data-tooltip="{{tooltip}}">{{label}}</button>
+          {{else}}
+          <div class="dt-seg {{type}}" style="grid-column: {{col}} / span {{span}}" data-tooltip="{{tooltip}}"></div>
+          {{/if}}
+          {{/each}}
+        </div>
+      </div>
+      {{/each}}
+      <div class="dt-month dt-ticks-row">
+        <span></span>
+        <div class="dt-ticks">{{#each ticks}}<span>{{this}}</span>{{/each}}</div>
+      </div>
+    </div>
+  </section>
+
+  {{#if run}}
+  <section class="dt-card">
+    {{#if isGM}}
+    <h3>{{localize "DOWNTIME.Pool.Title"}}</h3>
+    <div class="dt-pool" data-drop="pool">
+      {{#each participants}}
+      <span class="dt-chip" draggable="true" data-drag-actor="{{id}}">
+        <img src="{{img}}" alt="">{{name}}
+        <button type="button" class="dt-chip-remove" data-action="removeParticipant" aria-label="{{localize "DOWNTIME.Pool.Remove"}}" data-tooltip="DOWNTIME.Pool.Remove"><i class="fa-solid fa-xmark"></i></button>
+      </span>
+      {{else}}
+      <span class="dt-hint">{{localize "DOWNTIME.Pool.Empty"}}</span>
+      {{/each}}
+    </div>
+    {{/if}}
+
+    {{#if blocks.length}}
+    <div class="dt-blocks">
+      {{#each blocks}}
+      <div class="dt-block">
+        <div class="dt-block-head">
+          <strong>{{localize "DOWNTIME.Blocks.Block" number=number}}</strong>
+          <span class="{{#if rentDue}}dt-due{{/if}}">
+            {{localize "DOWNTIME.Blocks.Range" month=month from=from to=to}}{{#if rentDue}} · {{localize "DOWNTIME.Month.Due"}}{{/if}}
+          </span>
+        </div>
+        <div class="dt-drop" data-drop="block" data-block="{{index}}">
+          {{#each entries}}
+          <div class="dt-entry" data-entry data-block="{{block}}" data-index="{{index}}" data-actor-id="{{actorId}}">
+            <div class="dt-entry-head">
+              <span class="dt-entry-who" {{#if @root.isGM}}draggable="true" data-drag-entry{{/if}}><img src="{{img}}" alt="">{{name}}</span>
+              {{#if @root.isGM}}
+              <button type="button" class="dt-remove" data-action="removeEntry" aria-label="{{localize "DOWNTIME.Blocks.Remove"}}" data-tooltip="DOWNTIME.Blocks.Remove"><i class="fa-solid fa-xmark"></i></button>
+              {{/if}}
+            </div>
+            <select name="activity" aria-label="{{localize "DOWNTIME.Activities.Label"}}" {{#unless canEdit}}disabled{{/unless}}>
+              <option value="" {{#unless activity}}selected{{/unless}}>{{localize "DOWNTIME.Activities.Choose"}}</option>
+              {{#each options}}
+              <option value="{{value}}" {{#if selected}}selected{{/if}} {{#if disabled}}disabled{{/if}}>{{label}}</option>
+              {{/each}}
+            </select>
+            <input type="text" name="plan" value="{{plan}}" placeholder="{{localize "DOWNTIME.Blocks.PlanPlaceholder"}}" aria-label="{{localize "DOWNTIME.Blocks.Plan"}}" {{#unless canEdit}}disabled{{/unless}}>
+          </div>
+          {{else}}
+          <div class="dt-hint dt-drop-hint">{{#if @root.isGM}}{{localize "DOWNTIME.Blocks.DropHint"}}{{else}}{{localize "DOWNTIME.Blocks.NoEntries"}}{{/if}}</div>
+          {{/each}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{else}}
+    <p class="dt-hint">{{localize "DOWNTIME.Blocks.NoneHint"}}</p>
+    {{/if}}
+  </section>
+  {{/if}}
+  {{/if}}
+
+</div>

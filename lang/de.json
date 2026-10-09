@@ -1,0 +1,316 @@
+{
+  "DOWNTIME": {
+    "Title": "downtime-tracker",
+    "Status": {
+      "Month": "Monat {number}",
+      "CampaignDay": "Kampagnentag {day}",
+      "NextRent": "Lebensstil-Kosten in {days} Tagen fällig",
+      "NextRentOne": "Lebensstil-Kosten in 1 Tag fällig",
+      "Unpaid": "Lebensstil-Kosten offen: Monat {months}"
+    },
+    "Run": {
+      "Select": "Run",
+      "New": "Neuer Run",
+      "NewName": "Neuer Run",
+      "Delete": "Run löschen",
+      "DeleteTitle": "Run löschen",
+      "DeleteText": "Soll der Run <strong>{name}</strong> mit seiner Downtime wirklich gelöscht werden? Alle späteren Tage rücken nach vorne.",
+      "Name": "Name des Runs",
+      "Description": "Beschreibung",
+      "DescriptionPlaceholder": "Worum ging es in diesem Run? Auftraggeber, Ziel, was ist schiefgelaufen …",
+      "Days": "Dauer (Tage)",
+      "Empty": "Es wurde noch kein Run eingetragen.",
+      "EmptyGM": "Lege mit „Neuer Run“ den ersten Run an."
+    },
+    "Blocks": {
+      "Label": "Downtime",
+      "None": "Keine Downtime",
+      "Summary": "{blocks} Blöcke = {days} Tage",
+      "SummaryOne": "1 Block = {days} Tage",
+      "NoneHint": "Wähle oben über die Checkboxen, wie viele 5-Tage-Blöcke Downtime genommen werden.",
+      "Block": "Block {number}",
+      "Range": "Monat {month}, Tag {from}–{to}",
+      "Plan": "Vorhaben",
+      "PlanPlaceholder": "Details (optional)",
+      "Remove": "Aus Block entfernen",
+      "DropHint": "Charakter hierher ziehen",
+      "NoEntries": "Keine Einträge"
+    },
+    "Pool": {
+      "Title": "Charaktere in dieser Downtime",
+      "Remove": "Aus dieser Downtime entfernen",
+      "Empty": "Ziehe Charaktere aus der Akteursliste hierher. Danach ziehst du sie in die Blöcke."
+    },
+    "Activities": {
+      "Title": "Downtime-Aktivitäten",
+      "Hint": "Nur diese Aktivitäten stehen in den Blöcken zur Auswahl.",
+      "Label": "Aktivität",
+      "Choose": "– Aktivität wählen –",
+      "New": "Neue Aktivität",
+      "Placeholder": "Kontakte pflegen",
+      "Add": "Hinzufügen",
+      "Remove": "Aktivität entfernen",
+      "Up": "Nach oben",
+      "Down": "Nach unten",
+      "Empty": "Noch keine Aktivitäten. Lege unten die erste an.",
+      "Exists": "„{name}“ ist bereits in der Liste.",
+      "Removed": "{name} (nicht mehr in der Liste)"
+    },
+    "Timeline": {
+      "Title": "Zeitstrahl",
+      "LegendRun": "Run",
+      "LegendBlock": "Downtime-Block (5 Tage)",
+      "LegendMonth": "Jede Zeile = 30 Tage, Lebensstil-Kosten am Zeilenende fällig",
+      "ShowPaid": "{count} bezahlte Monate anzeigen",
+      "HidePaid": "Bezahlte Monate ausblenden",
+      "Before": "Bereits vergangene Tage vor dem ersten Run",
+      "RunTooltip": "{name} ({days} Tage)",
+      "BlockTooltip": "{name}: Downtime-Block {block}"
+    },
+    "Month": {
+      "Label": "Monat {number}",
+      "Due": "Lebensstil-Kosten fällig",
+      "Paid": "Lebensstil-Kosten bezahlt",
+      "Left": "noch {days} Tage",
+      "LeftOne": "noch 1 Tag",
+      "TogglePaid": "Klicken, um als bezahlt bzw. offen zu markieren"
+    },
+    "Rent": {
+      "ChatTitle": "Lebensstil-Kosten fällig",
+      "ChatText": "Monat {number} ist vorbei. Die Lebensstil-Kosten müssen bezahlt werden."
+    },
+    "Journal": {
+      "Name": "Savage Shadowrun Abenteuerlog",
+      "AllRuns": "Alle Runs",
+      "NoDescription": "Keine Beschreibung",
+      "Write": "Ins Journal schreiben",
+      "Written": "Das Journal „{name}“ wurde aktualisiert.",
+      "Overview": "Übersicht",
+      "CampaignDays": "Kampagnentag {from}–{to}",
+      "RunDays": "Run: Tag {range} ({days} Tage gesamt)",
+      "RunContinued": "Run, Fortsetzung: Tag {range} ({days} Tage gesamt)",
+      "BlockDays": "Tag {from}–{to}",
+      "BlockDaysNext": "Tag {from} – Tag {to} im Folgemonat",
+      "BlockCarried": "Downtime-Block aus dem Vormonat läuft weiter",
+      "NoPlan": "keine Aktivität eingetragen",
+      "NoCharacters": "Keine Charaktere in diesem Block",
+      "MonthEmpty": "In diesem Monat ist noch nichts eingetragen.",
+      "StatDay": "Kampagnentag",
+      "StatRuns": "Runs",
+      "StatMonths": "Monate",
+      "StatDue": "Lebensstil-Kosten offen",
+      "ColMonth": "Monat",
+      "ColDays": "Zeitraum",
+      "ColRuns": "Runs",
+      "ColStatus": "Lebensstil-Kosten",
+      "Generated": "Automatisch erstellt am {date}. Änderungen auf diesen Seiten werden beim nächsten Schreiben überschrieben."
+    },
+    "Data": {
+      "Export": "Exportieren",
+      "Import": "Importieren",
+      "ImportButton": "Importieren",
+      "ImportHint": "Wähle eine zuvor exportierte Downtime-Datei (.json). Die aktuellen Downtime-Daten werden dabei vollständig ersetzt.",
+      "ImportConfirm": "Die Datei enthält {runs} Runs. Sollen die aktuellen Downtime-Daten wirklich ersetzt werden?",
+      "ImportInvalid": "Die Datei ist keine gültige Downtime-Datei.",
+      "Imported": "Downtime-Daten wurden importiert."
+    },
+    "Notify": {
+      "AlreadyInBlock": "{name} ist bereits in diesem Block.",
+      "NoGM": "Keine Spielleitung online. Dein Eintrag konnte nicht gespeichert werden."
+    },
+    "Lifestyle": {
+      "Tab": "Lebensstile",
+      "TabLog": "Abenteuerlog",
+      "Drop": "Ziehe einen deiner Charaktere hierher, um einen Lebensstil anzulegen.",
+      "DropGM": "Ziehe einen Charakter aus der Akteursliste hierher, um einen Lebensstil anzulegen.",
+      "Empty": "Noch keine Lebensstile angelegt.",
+      "NotOwner": "Du kannst nur für deine eigenen Charaktere einen Lebensstil anlegen.",
+      "DefaultTitle": "Lebensstil",
+      "TitleLabel": "Bezeichnung",
+      "TitlePlaceholder": "z. B. Wohnung in Puyallup",
+      "Delete": "Lebensstil löschen",
+      "DeleteText": "Soll der Lebensstil <strong>{title}</strong> von {name} wirklich gelöscht werden?",
+      "PerMonth": "pro 30 Tage",
+      "LpTotal": "{lp} LP",
+      "LpBreakdown": "{total} LP ({categories} + {qualities})",
+      "Points": "Lebensstil-Punkte",
+      "Tier": "Gesamtstufe",
+      "TierTooltip": "Ergibt sich aus den Grundkosten: ab 2.000 ¥ Unterschicht, ab 5.000 ¥ Mittelschicht, ab 10.000 ¥ Oberschicht, ab 50.000 ¥ Luxus. Gesellschaftliche Akzeptanz: Etablissements bis zu dieser Stufe ohne Probe, eine Stufe höher Überreden −2, zwei Stufen −4, drei oder mehr normalerweise kein Zutritt.",
+      "Healing": "Natürliche Heilung",
+      "HealingValue": "{mod} auf Heilungsproben",
+      "HealingTooltip": "Richtet sich nach dem Grundbedarf: Squatter −2, Unterschicht −1, Mittelschicht ±0, Oberschicht +1, Luxus +2. Gilt nur für natürliche Heilung, nicht für magische Heilung oder Cyberware.",
+      "BaseCost": "Grundkosten {cost}",
+      "Surcharge": "Aufschlag +{percent} %",
+      "RoommateDiscount": "Mitbewohner −{percent} %",
+      "Fixed": "fest +{cost}",
+      "Extra": {
+        "Title": "Laufende Zusatzkosten",
+        "Tooltip": "Kosten durch Handicaps oder Besonderheiten, z. B. Abhängigkeit oder Symbiont. Die Prozente werden addiert und auf die Grundkosten gerechnet, Mitbewohner senken dieselben Grundkosten, danach kommen die festen Beträge dazu. Zusatzkosten ändern die Gesamtstufe nicht.",
+        "Fixed": "Fest (¥)",
+        "Percent": "Aufschlag (%)",
+        "Remove": "Zusatzkosten entfernen",
+        "None": "Keine Zusatzkosten",
+        "Add": "– Zusatzkosten hinzufügen –",
+        "Preset": {
+          "addictionMinor": "Abhängigkeit (Leicht): +500 ¥, +5 %",
+          "addictionMajor": "Abhängigkeit (Schwer): +2.000 ¥, +10 %",
+          "symbiont": "Symbiont: +15 % (10–20 %)",
+          "custom": "Eigener Eintrag"
+        }
+      },
+      "Count": "Lebensstile",
+      "TotalCost": "Summe pro 30 Tage",
+      "Qualities": "Eigenschaften",
+      "NoQualities": "Keine Eigenschaften",
+      "AddQuality": "– Eigenschaft hinzufügen –",
+      "RemoveQuality": "Eigenschaft entfernen",
+      "QualityRemoved": "nicht mehr in der Liste",
+      "Positive": "Positiv",
+      "Negative": "Negativ",
+      "Roommates": "Mitbewohner",
+      "RoommatesValue": "· {count} Mitbewohner (−{percent} %)",
+      "RoommatesTooltip": "Wer sich die Wohnung teilt, zahlt weniger: 10 % Rabatt pro Mitbewohner, höchstens 50 %. Die Grundkosten der Wohnung bleiben gleich, nur der eigene Anteil sinkt.",
+      "Notes": "Notizen",
+      "NotesPlaceholder": "Adresse, Vermieter, Besonderheiten …",
+      "Security": "Magschloss",
+      "LockValue": "{label} ({mod})",
+      "GuardsLabel": "Wachpersonal",
+      "Category": {
+        "comforts": "Komfort",
+        "entertainment": "Unterhaltung",
+        "necessities": "Grundbedarf",
+        "neighborhood": "Nachbarschaft",
+        "security": "Sicherheit"
+      },
+      "Level": {
+        "zzone": "Squatter (Z)",
+        "z": "Squatter (Z)",
+        "e": "Squatter (E)",
+        "d": "Unterschicht (D)",
+        "c": "Unterschicht (C)",
+        "dc": "Unterschicht (D / C)",
+        "b": "Mittelschicht (B)",
+        "a": "Mittelschicht (A)",
+        "aa": "Oberschicht (AA)",
+        "street": "Squatter",
+        "squatter": "Squatter",
+        "low": "Unterschicht",
+        "middle": "Mittelschicht",
+        "high": "Oberschicht",
+        "luxury": "Luxus",
+        "aaa": "Luxus (AAA)"
+      },
+      "Lock": {
+        "None": "kein Magschloss",
+        "Easy": "Einfach",
+        "Standard": "Standard",
+        "Hard": "Schwierig",
+        "Extreme": "Fast unmöglich"
+      },
+      "Guards": {
+        "street": "keine",
+        "squatter": "keine",
+        "low": "eventuell ein Hausmeister",
+        "middle": "Wachdienst, trifft nach einigen Minuten ein",
+        "high": "Wachmann vor Ort",
+        "luxury": "mehrere gut ausgerüstete Wachen"
+      },
+      "Help": {
+        "Toggle": "Erklärung der Kategorien",
+        "Hide": "Erklärung ausblenden",
+        "ZoneTermsTitle": "Schlüsselbegriffe",
+        "ZoneTerms": "<p><strong>Problem erkannt:</strong> Alarmierung durch Schusswaffen, Explosionen, Notrufe oder Notrufstationen (PanicButtons). Hängt von der Sicherheitsstufe ab.</p><p><strong>Erste Reaktion:</strong> Meist astrale Magier oder Geister, in AAA- und AA-Gebieten zusätzlich Rigger, die Kameras überwachen.</p><p><strong>Zweite Reaktion:</strong> Drohnen und Streifen werden alarmiert.</p><p><strong>Patrouille:</strong> Erste Beamte vor Ort.</p><p><strong>Verstärkung:</strong> Je nach Lage weitere bewaffnete Einsatzkräfte, Fahrzeuge, Magier und Drohnen.</p><p><strong>Fortlaufende Reaktion:</strong> Weitere Maßnahmen je nach Situation.</p>",
+        "Intro": "Ein Lebensstil besteht aus fünf Kategorien. Jede Stufe kostet Lebensstil-Punkte (LP), Eigenschaften kommen dazu oder werden abgezogen. Die Summe der LP bestimmt die Grundkosten. Wer sich die Wohnung teilt, zahlt 10 % weniger pro Mitbewohner (höchstens 50 %). Die Kosten gelten immer für 30 Tage und laufen auch während eines Runs weiter. Danach muss der Charakter zahlen.",
+        "Tier": "Die Gesamtstufe ergibt sich aus den Grundkosten, also ohne Mitbewohner und Zusatzkosten: unter 2.000 ¥ Squatter, ab 2.000 ¥ Unterschicht, ab 5.000 ¥ Mittelschicht, ab 10.000 ¥ Oberschicht (bis unter 50.000 ¥), ab 50.000 ¥ Luxus. Sie bestimmt derzeit noch die gesellschaftliche Akzeptanz.",
+        "Acceptance": "Gesellschaftliche Akzeptanz: Liegt die Gesamtstufe mindestens auf dem Niveau eines Etablissements, gibt es Zutritt ohne Probe. Eine Stufe darunter Überreden −2, zwei Stufen −4, drei oder mehr normalerweise kein Zutritt. Einladung, passende Kleidung oder eine gute Tarnung können den Nachteil aufheben.",
+        "Healing": "Natürliche Heilung richtet sich nach dem Grundbedarf, also Ernährung, Hygiene und medizinische Versorgung: Squatter −2, Unterschicht −1, Mittelschicht ±0, Oberschicht +1, Luxus +2. Gilt nicht für magische Heilung oder Cyberware.",
+        "Payment": "Zahlungsrückstand: Kann oder will ein Charakter nicht zahlen, fällt er zu Beginn des nächsten Monats auf die höchste Stufe zurück, die er noch bezahlen kann. Dafür werden Kategorien oder Eigenschaften heruntergestuft, bis die Kosten passen.",
+        "Warnings": "Einige Kombinationen passen nicht zusammen, zum Beispiel eine Luxuswohnung in der Z-Zone. Das Modul warnt dann, verbietet es aber nicht. Die Spielleitung entscheidet.",
+        "Tooltip": {
+          "comforts": "Wohnraum und Einrichtung: Größe, Möbel, Sauberkeit, Platz für sich.",
+          "entertainment": "Freizeit: Trideo, Matrix-Abos, Simsinn, Ausgehen. Höchstens eine Stufe über dem Grundbedarf.",
+          "necessities": "Essen, Kleidung, Hygiene, Strom und Wasser. Bestimmt die natürliche Heilung. Eine Werkstatt braucht mindestens Mittelschicht.",
+          "neighborhood": "Die Nachbarschaft: Z bis AAA. Bestimmt Polizeipräsenz und wie die Cops auf Alarm reagieren.",
+          "security": "Schlösser, Alarmanlage und Wachen. Magschloss: Squatter keines, Unterschicht +0, Mittelschicht −2, Oberschicht −4, Luxus −6."
+        },
+        "Detail": {
+          "comforts": "Wie man wohnt: Größe der Wohnung, Möbel, Zustand und wie viel Privatsphäre man hat. Liegt der Komfort über Sicherheit oder Nachbarschaft, gibt es mehr zu holen, als geschützt ist, und das zieht Diebe an.",
+          "entertainment": "Was man in der Freizeit hat und sich leisten kann: Trideo, Matrix-Abos, Simsinn, Bars, Clubs und Hobbys. Unterhaltung darf höchstens eine Stufe über dem Grundbedarf liegen, denn wer hungert, kauft keine Konzertkarten.",
+          "necessities": "Die Grundversorgung: Essen, Kleidung, Körperpflege, Strom, Wasser und einfache medizinische Versorgung. Davon hängt die natürliche Heilung ab. Für eine Werkstatt zuhause braucht es mindestens Mittelschicht, für eine größere Anlage Oberschicht.",
+          "neighborhood": "Die Nachbarschaft, in der man wohnt: von der rechtsfreien Z-Zone bis zur AAA-Enklave. Sie bestimmt, wie schnell Knight Errant oder Lone Star kommt, und welche Kombinationen mit den anderen Kategorien noch sinnvoll sind. Die Stufen unten beschreiben jedes Viertel vollständig.",
+          "security": "Wie gut die Wohnung geschützt ist: Schlösser, Alarmanlage, Kameras und Wachpersonal. Magschloss knacken (Elektronik mit Magschlossknacker, Patzer löst Alarm aus): Squatter keines, Unterschicht Einfach (+0), Mittelschicht Standard (−2), Oberschicht Schwierig (−4), Luxus Fast unmöglich (−6). Wachen sind gewöhnliche Statisten."
+        },
+        "Levels": {
+          "comforts": {
+            "street": "Pappkarton, Hauseingang, besetztes Haus oder Sargzimmer.",
+            "squatter": "Eine Matratze in einem besetzten Haus oder ein Sargzimmer.",
+            "low": "Ein kleines Zimmer oder Apartment, alt, eng, Gemeinschaftsbad.",
+            "middle": "Eine ordentliche Wohnung mit eigener Küche und eigenem Bad.",
+            "high": "Eine geräumige, gehobene Wohnung oder ein Haus.",
+            "luxury": "Penthouse, Villa oder Anwesen, Personal inklusive."
+          },
+          "entertainment": {
+            "street": "Was man findet, ab und zu ein Bier.",
+            "squatter": "Ein altes Trideo, ab und zu ein Bier.",
+            "low": "Basis-Abos, billige Simsinn-Chips, die Kneipe um die Ecke.",
+            "middle": "Gute Abos, Restaurantbesuche, gelegentlich ein Konzert.",
+            "high": "Premium-Abos, angesagte Clubs, teure Hobbys.",
+            "luxury": "VIP-Logen, exklusive Clubs, alles auf Abruf."
+          },
+          "necessities": {
+            "street": "Reste, Suppenküche, was man findet.",
+            "squatter": "Billige Soy-Rationen, Kleidung aus zweiter Hand.",
+            "low": "Soy-Essen, einfache Kleidung, Strom und Wasser meistens da.",
+            "middle": "Teilweise echte Lebensmittel, ordentliche Kleidung, zuverlässige Versorgung.",
+            "high": "Frische Lebensmittel, Markenkleidung, gute Ärzte.",
+            "luxury": "Gourmetküche, Designerkleidung, Privatarzt."
+          },
+          "neighborhood": {
+            "aaa": "<p>AAA-Gebiete bieten die höchste Sicherheit. Sie liegen typischerweise in Luxus- und gehobenen Wohnvierteln sowie überall dort, wo jemand für erstklassigen Schutz zahlt. Alle anderen Kategorien mindestens Oberschicht.</p><p>Was ist hier zu erwarten?</p><ul><li>Funktionsfähige Notrufstationen (PanicButtons)</li><li>Streifenpatrouillen zu Fuß und in Fahrzeugen</li><li>Astrale Sicherheitsstreifen mit Magiern und Geistern</li><li>Sicherheitsdrohnen</li><li>Sicherheitstechniker (Rigger), die Kameras und Alarme überwachen</li></ul><p>Die Sicherheitskräfte in AAA-Zonen sind die besten und sammeln die meisten Dienststunden. Eine Versetzung in ein AAA-Gebiet gilt als große Beförderung, und niemand will durch Fehler degradiert werden.</p><p>Selbst geringste Vergehen werden umgehend verfolgt, und Verbrechen bleiben niemals unaufgeklärt, egal welche Kosten entstehen. Falls es nötig ist, einen Schuldigen zu präsentieren, wird dies geschehen. Kriminalität hat hier keinen Platz.</p>",
+            "aa": "<p>AA-Gebiete liegen meist in gehobenen Wohnvierteln und bei Unternehmen, die rund um die Uhr Sicherheit wollen, aber nicht für aktive Abschreckung zahlen. Sicherheit und Grundbedarf mindestens Mittelschicht.</p><p>Was ist hier zu erwarten?</p><ul><li>Patrouillen rund um die Uhr, jedoch nicht so häufig wie in AAA-Gebieten</li><li>Gewöhnliche Polizisten rücken aus und rufen bei Bedarf Spezialisten</li><li>Die Reaktionszeit ist extrem schnell, es sei denn, es gibt ein AAA-Problem</li><li>Arbeiten in diesen Gebieten gilt als Beförderung, Ermittlungen erfolgen gründlich und schnell</li></ul>",
+            "a": "<p>A-Gebiete umfassen die meisten wichtigen Punkte der Stadt sowie viele Mittelschicht-Viertel. Hier sind reguläre Polizeikräfte im Einsatz. Sicherheitssysteme basieren hauptsächlich auf Alarmierungen. </p><p>Folgendes kann erwartet werden:</p><ul><li>Zahlreiche Notrufstationen (PanicButtons)</li><li>Bürgerwehren und andere Sicherheitsmaßnahmen</li><li>Sicherheit ist hoch, aber es gibt viele Fehlalarme</li></ul>",
+            "b": "<p>B-Gebiete bestehen hauptsächlich aus Gewerbegebieten und gelten als Hochkriminalitätsziele, also bevorzugte Ziele für Shadowrunner. </p><p>Die Standardreaktion von Knight Errant oder Lone Star umfasst:</p><ul><li>4 Polizisten mit einem Magier und/oder Elite-Offizieren in Bereitschaft</li></ul>",
+            "dc": "<p>Diese Zonen sind die Unterschicht-Versionen von A- und B-Sicherheitsstufen:</p><ul><li><strong>C:</strong> Wohngebiete</li><li><strong>D:</strong> Gewerbegebiete</li></ul><ul><li>Seltene Patrouillen</li><li>Viele Notrufstationen sind außer Betrieb</li><li>Wenig proaktive Kriminalitätsbekämpfung; Polizei muss reagieren</li><li>Bürger sind gegenüber Sicherheitskräften oft misstrauisch</li><li>Viele Polizisten beginnen ihre Karriere hier und versuchen so schnell wie möglich aufzusteigen</li></ul><p>Standardreaktion (außer bei verdeckten Operationen):</p><ul><li>6 bis 8 Beamte in Vollpanzerung</li><li>Ein Citymaster (gepanzertes Fahrzeug)</li><li>Zwei Streifenwagen</li><li>Ein Kampfmagier</li><li>Häufig ersetzen Drohnen Polizisten, um Verletzungen zu vermeiden</li></ul>",
+            "e": "<p>E-Gebiete sind Slums und beherbergen Squatter. Hier leben zwar Menschen, aber sie gelten nicht als echte Bürger, daher wird kaum Aufwand betrieben. Komfort höchstens Unterschicht.</p><ul><li>Keine Patrouillen durch Lone Star oder Knight Errant</li><li>Einsätze nur, wenn SINner eine Beschwerde einreichen oder Gewalt in wichtige Gebiete übergreift</li></ul><p>Standardreaktion:</p><ul><li>Zwei Citymaster mit je 12–15 schwer gepanzerten Beamten</li><li>Ein Kampf-Rigger pro Fahrzeug</li><li>Mindestens zwei Kampfmagier unter der Führung eines Elite-Offiziers</li></ul>",
+            "z": "<p>Z-Zonen (Zero Zones) sind rechtsfreie Räume im Zustand der Anarchie. Sicherheitskräfte betreten sie nur im Rahmen von Ermittlungen und dann in Kriegsformation. Alle anderen Kategorien sind auf Squatter begrenzt.</p><p>Standardminimum:</p><ul><li>3 Citymaster, gesteuert von Riggern</li><li>25–30 schwer gepanzerte Beamte</li><li>Luftunterstützung durch Hubschrauber oder VTOLs</li><li>Zusätzliche Rigger für Drohnenüberwachung</li><li>Mindestens 3 Kampfmagier</li><li>3–5 Elite-Offiziere</li></ul><p>Z-Zonen gelten als Hochrisiko-Einsatzgebiet: dreifaches Gehalt und eine Woche frei nach dem Einsatz.</p>"
+          },
+          "security": {
+            "street": "Kein Magschloss, höchstens ein Vorhängeschloss.",
+            "squatter": "Ein billiges Magschloss.",
+            "low": "Magschloss Einfach (+0), vielleicht ein Hausmeister.",
+            "middle": "Magschloss Standard (−2), Alarmanlage, ein Wachdienst kommt nach einigen Minuten.",
+            "high": "Magschloss Schwierig (−4), Kameras, ein Wachmann vor Ort.",
+            "luxury": "Magschloss Fast unmöglich (−6), Überwachung rund um die Uhr, mehrere gut ausgerüstete Wachen."
+          }
+        }
+      },
+      "Warn": {
+        "Entertainment": "Unterhaltung darf höchstens eine Stufe über dem Grundbedarf liegen.",
+        "ZZone": "In einer Squatter-Nachbarschaft (Z) sind alle Kategorien auf Squatter begrenzt.",
+        "ZoneE": "In einer Squatter-Nachbarschaft (E) ist Komfort höchstens Unterschicht.",
+        "ZoneAA": "Eine Oberschicht-Nachbarschaft (AA) verlangt Sicherheit und Grundbedarf mindestens Mittelschicht.",
+        "ZoneAAA": "Eine Luxus-Nachbarschaft (AAA) verlangt alle Kategorien mindestens Oberschicht.",
+        "Thieves": "Komfort liegt über Sicherheit oder Nachbarschaft: Das lockt Diebe an."
+      }
+    },
+    "Qualities": {
+      "Title": "Lebensstil-Eigenschaften",
+      "Hint": "Diese Eigenschaften stehen beim Lebensstil zur Auswahl. Änderungen an LP und Wirkung gelten sofort für alle Lebensstile.",
+      "Name": "Name",
+      "Effect": "SWADE-Wirkung",
+      "New": "Neue Eigenschaft",
+      "NamePlaceholder": "Neue Eigenschaft",
+      "EffectPlaceholder": "Wirkung in SWADE",
+      "Add": "Eigenschaft hinzufügen",
+      "Remove": "Eigenschaft löschen"
+    },
+    "Settings": {
+      "Open": "Einstellungen",
+      "Close": "Schließen",
+      "StartOffset": {
+        "Name": "Bereits vergangene Tage",
+        "Hint": "Wie viele Tage des ersten Monats schon vor dem ersten eingetragenen Run vergangen sind (0–29)."
+      }
+    }
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "DOWNTIME": {
+    "Title": "downtime-tracker",
+    "Status": {
+      "Month": "Month {number}",
+      "CampaignDay": "Campaign day {day}",
+      "NextRent": "Lifestyle costs due in {days} days",
+      "NextRentOne": "Lifestyle costs due in 1 day",
+      "Unpaid": "Lifestyle costs unpaid: month {months}"
+    },
+    "Run": {
+      "Select": "Run",
+      "New": "New run",
+      "NewName": "New run",
+      "Delete": "Delete run",
+      "DeleteTitle": "Delete run",
+      "DeleteText": "Really delete the run <strong>{name}</strong> and its downtime? All later days move forward.",
+      "Name": "Run name",
+      "Description": "Description",
+      "DescriptionPlaceholder": "What was this run about? Client, goal, what went wrong …",
+      "Days": "Duration (days)",
+      "Empty": "No run has been recorded yet.",
+      "EmptyGM": "Use “New run” to create the first run."
+    },
+    "Blocks": {
+      "Label": "Downtime",
+      "None": "No downtime",
+      "Summary": "{blocks} blocks = {days} days",
+      "SummaryOne": "1 block = {days} days",
+      "NoneHint": "Use the checkboxes above to choose how many 5-day blocks of downtime are taken.",
+      "Block": "Block {number}",
+      "Range": "Month {month}, day {from}–{to}",
+      "Plan": "Plan",
+      "PlanPlaceholder": "Details (optional)",
+      "Remove": "Remove from block",
+      "DropHint": "Drag a character here",
+      "NoEntries": "No entries"
+    },
+    "Pool": {
+      "Title": "Characters in this downtime",
+      "Remove": "Remove from this downtime",
+      "Empty": "Drag characters here from the actor directory. Then drag them into the blocks."
+    },
+    "Activities": {
+      "Title": "Downtime activities",
+      "Hint": "Only these activities can be chosen in the blocks.",
+      "Label": "Activity",
+      "Choose": "– Choose activity –",
+      "New": "New activity",
+      "Placeholder": "Maintain contacts",
+      "Add": "Add",
+      "Remove": "Remove activity",
+      "Up": "Move up",
+      "Down": "Move down",
+      "Empty": "No activities yet. Add the first one below.",
+      "Exists": "“{name}” is already in the list.",
+      "Removed": "{name} (no longer in the list)"
+    },
+    "Timeline": {
+      "Title": "Timeline",
+      "LegendRun": "Run",
+      "LegendBlock": "Downtime block (5 days)",
+      "LegendMonth": "Each row = 30 days, lifestyle costs due at the end of the row",
+      "ShowPaid": "Show {count} paid months",
+      "HidePaid": "Hide paid months",
+      "Before": "Days already passed before the first run",
+      "RunTooltip": "{name} ({days} days)",
+      "BlockTooltip": "{name}: downtime block {block}"
+    },
+    "Month": {
+      "Label": "Month {number}",
+      "Due": "Lifestyle costs due",
+      "Paid": "Lifestyle costs paid",
+      "Left": "{days} days left",
+      "LeftOne": "1 day left",
+      "TogglePaid": "Click to mark as paid or unpaid"
+    },
+    "Rent": {
+      "ChatTitle": "Lifestyle costs due",
+      "ChatText": "Month {number} is over. Lifestyle costs must be paid."
+    },
+    "Journal": {
+      "Name": "Savage Shadowrun Abenteuerlog",
+      "AllRuns": "All runs",
+      "NoDescription": "No description",
+      "Write": "Write to journal",
+      "Written": "The journal “{name}” was updated.",
+      "Overview": "Overview",
+      "CampaignDays": "Campaign day {from}–{to}",
+      "RunDays": "Run: day {range} ({days} days total)",
+      "RunContinued": "Run, continued: day {range} ({days} days total)",
+      "BlockDays": "Day {from}–{to}",
+      "BlockDaysNext": "Day {from} – day {to} of next month",
+      "BlockCarried": "Downtime block continues from previous month",
+      "NoPlan": "no activity entered",
+      "NoCharacters": "No characters in this block",
+      "MonthEmpty": "Nothing has been recorded for this month yet.",
+      "StatDay": "Campaign day",
+      "StatRuns": "Runs",
+      "StatMonths": "Months",
+      "StatDue": "Lifestyle costs unpaid",
+      "ColMonth": "Month",
+      "ColDays": "Period",
+      "ColRuns": "Runs",
+      "ColStatus": "Lifestyle costs",
+      "Generated": "Generated on {date}. Changes to these pages are overwritten the next time the journal is written."
+    },
+    "Data": {
+      "Export": "Export",
+      "Import": "Import",
+      "ImportButton": "Import",
+      "ImportHint": "Choose a previously exported downtime file (.json). The current downtime data will be replaced completely.",
+      "ImportConfirm": "The file contains {runs} runs. Really replace the current downtime data?",
+      "ImportInvalid": "The file is not a valid downtime file.",
+      "Imported": "Downtime data was imported."
+    },
+    "Notify": {
+      "AlreadyInBlock": "{name} is already in this block.",
+      "NoGM": "No gamemaster is online. Your entry could not be saved."
+    },
+    "Lifestyle": {
+      "Tab": "Lifestyles",
+      "TabLog": "Adventure log",
+      "Drop": "Drag one of your characters here to create a lifestyle.",
+      "DropGM": "Drag a character from the actor directory here to create a lifestyle.",
+      "Empty": "No lifestyles yet.",
+      "NotOwner": "You can only create lifestyles for your own characters.",
+      "DefaultTitle": "Lifestyle",
+      "TitleLabel": "Name",
+      "TitlePlaceholder": "e.g. apartment in Puyallup",
+      "Delete": "Delete lifestyle",
+      "DeleteText": "Really delete the lifestyle <strong>{title}</strong> of {name}?",
+      "PerMonth": "per 30 days",
+      "LpTotal": "{lp} LP",
+      "LpBreakdown": "{total} LP ({categories} + {qualities})",
+      "Points": "Lifestyle points",
+      "Tier": "Overall level",
+      "TierTooltip": "Derived from the base cost: from 2,000 ¥ Low, from 5,000 ¥ Middle, from 10,000 ¥ High, from 50,000 ¥ Luxury. Social acceptance: venues up to this level without a roll, one level higher Persuasion −2, two levels −4, three or more usually no entry.",
+      "Healing": "Natural healing",
+      "HealingValue": "{mod} to healing rolls",
+      "HealingTooltip": "Based on Necessities: Squatter −2, Low −1, Middle ±0, High +1, Luxury +2. Applies only to natural healing, not magical healing or cyberware.",
+      "BaseCost": "Base cost {cost}",
+      "Surcharge": "surcharge +{percent} %",
+      "RoommateDiscount": "roommates −{percent} %",
+      "Fixed": "fixed +{cost}",
+      "Extra": {
+        "Title": "Ongoing extra costs",
+        "Tooltip": "Costs from hindrances or special traits, e.g. addiction or symbiont. Percentages are added up and applied to the base cost, roommates reduce that same base cost, then fixed amounts are added. Extra costs do not change the overall level.",
+        "Fixed": "Fixed (¥)",
+        "Percent": "Surcharge (%)",
+        "Remove": "Remove extra cost",
+        "None": "No extra costs",
+        "Add": "– Add extra cost –",
+        "Preset": {
+          "addictionMinor": "Addiction (Minor): +500 ¥, +5 %",
+          "addictionMajor": "Addiction (Major): +2,000 ¥, +10 %",
+          "symbiont": "Symbiont: +15 % (10–20 %)",
+          "custom": "Custom entry"
+        }
+      },
+      "Count": "Lifestyles",
+      "TotalCost": "Total per 30 days",
+      "Qualities": "Qualities",
+      "NoQualities": "No qualities",
+      "AddQuality": "– Add quality –",
+      "RemoveQuality": "Remove quality",
+      "QualityRemoved": "no longer in the list",
+      "Positive": "Positive",
+      "Negative": "Negative",
+      "Roommates": "Roommates",
+      "RoommatesValue": "· {count} roommates (−{percent} %)",
+      "RoommatesTooltip": "Sharing the place costs less: 10 % off per roommate, 50 % at most. The apartment's base cost stays the same; only the character's share drops.",
+      "Notes": "Notes",
+      "NotesPlaceholder": "Address, landlord, details …",
+      "Security": "Maglock",
+      "LockValue": "{label} ({mod})",
+      "GuardsLabel": "Guards",
+      "Category": {
+        "comforts": "Comforts",
+        "entertainment": "Entertainment",
+        "necessities": "Necessities",
+        "neighborhood": "Neighborhood",
+        "security": "Security"
+      },
+      "Level": {
+        "zzone": "Squatter (Z)",
+        "z": "Squatter (Z)",
+        "e": "Squatter (E)",
+        "d": "Low (D)",
+        "c": "Low (C)",
+        "dc": "Low (D / C)",
+        "b": "Middle (B)",
+        "a": "Middle (A)",
+        "aa": "High (AA)",
+        "street": "Squatter",
+        "squatter": "Squatter",
+        "low": "Low",
+        "middle": "Middle",
+        "high": "High",
+        "luxury": "Luxury",
+        "aaa": "Luxury (AAA)"
+      },
+      "Lock": {
+        "None": "no maglock",
+        "Easy": "Easy",
+        "Standard": "Standard",
+        "Hard": "Hard",
+        "Extreme": "Nearly impossible"
+      },
+      "Guards": {
+        "street": "none",
+        "squatter": "none",
+        "low": "maybe a janitor",
+        "middle": "security service, arrives after a few minutes",
+        "high": "guard on site",
+        "luxury": "several well-equipped guards"
+      },
+      "Help": {
+        "Toggle": "Explain the categories",
+        "Hide": "Hide explanation",
+        "ZoneTermsTitle": "Key terms",
+        "ZoneTerms": "<p><strong>Problem spotted:</strong> Alert from gunfire, explosions, calls or PanicButtons. Depends on the security rating.</p><p><strong>First response:</strong> Usually astral mages or spirits; in AAA and AA areas also riggers watching cameras.</p><p><strong>Second response:</strong> Drones and patrols are alerted.</p><p><strong>Patrol:</strong> First officers on scene.</p><p><strong>Backup:</strong> Further armed units, vehicles, mages and drones as needed.</p><p><strong>Ongoing response:</strong> Further measures depending on the situation.</p>",
+        "Intro": "A lifestyle consists of five categories. Each level costs lifestyle points (LP), qualities add or subtract LP. The LP total sets the base cost. Sharing the place reduces that by 10 % per roommate (50 % at most). The cost always covers 30 days and keeps running during runs. After that the character has to pay.",
+        "Tier": "The overall level is derived from the base cost, without roommates and extra costs: below 2,000 ¥ Squatter, from 2,000 ¥ Low, from 5,000 ¥ Middle, from 10,000 ¥ High (below 50,000 ¥), from 50,000 ¥ Luxury. For now it still sets social acceptance.",
+        "Acceptance": "Social acceptance: if the overall level is at least the level of a venue, entry is granted without a roll. One level below Persuasion −2, two levels −4, three or more usually no entry. An invitation, fitting clothes or a good disguise can remove the penalty.",
+        "Healing": "Natural healing is based on Necessities, i.e. food, hygiene and medical care: Squatter −2, Low −1, Middle ±0, High +1, Luxury +2. Does not apply to magical healing or cyberware.",
+        "Payment": "Missed payment: if a character cannot or will not pay, at the start of the next month they drop to the highest level they can still afford. Categories or qualities are lowered until the cost fits.",
+        "Warnings": "Some combinations do not fit together, e.g. a luxury apartment in a Z-zone. The module warns but does not forbid it. The gamemaster decides.",
+        "Tooltip": {
+          "comforts": "Living space and furnishings: size, furniture, cleanliness, privacy.",
+          "entertainment": "Leisure: trid, Matrix subscriptions, simsense, going out. At most one level above Necessities.",
+          "necessities": "Food, clothing, hygiene, power and water. Sets natural healing. A workshop needs at least Middle.",
+          "neighborhood": "The neighborhood, from Z to AAA. Sets police presence and how cops respond to alarms.",
+          "security": "Locks, alarms and guards. Maglock: Squatter none, Low +0, Middle −2, High −4, Luxury −6."
+        },
+        "Detail": {
+          "comforts": "How you live: size of the home, furniture, condition and privacy. If Comforts exceed Security or Neighborhood, there is more to steal than is protected, which attracts thieves.",
+          "entertainment": "What you have and can afford in your free time: trid, Matrix subscriptions, simsense, bars, clubs and hobbies. Entertainment may be at most one level above Necessities.",
+          "necessities": "Basic supplies: food, clothing, hygiene, power, water and basic medical care. Natural healing is based on this category. A home workshop needs at least Middle, a larger facility High.",
+          "neighborhood": "The neighborhood you live in, from a lawless Z-zone to an AAA enclave. It sets how fast Knight Errant or Lone Star responds, and which combinations with the other categories still make sense. The ratings below describe each district in full.",
+          "security": "How well the home is protected: locks, alarms, cameras and guards. Cracking the maglock (Electronics with a maglock passkey, a critical failure triggers the alarm): Squatter none, Low Easy (+0), Middle Standard (−2), High Hard (−4), Luxury nearly impossible (−6). Guards are ordinary Extras."
+        },
+        "Levels": {
+          "comforts": {
+            "street": "A cardboard box, a doorway, a squat or a coffin motel.",
+            "squatter": "A mattress in a squat or a coffin motel.",
+            "low": "A small, old, cramped room or apartment with a shared bathroom.",
+            "middle": "A decent apartment with its own kitchen and bathroom.",
+            "high": "A spacious upscale apartment or house.",
+            "luxury": "Penthouse, villa or estate, staff included."
+          },
+          "entertainment": {
+            "street": "Whatever you can scrounge, a beer now and then.",
+            "squatter": "An old trid set, a beer now and then.",
+            "low": "Basic subscriptions, cheap simsense chips, the local bar.",
+            "middle": "Good subscriptions, restaurants, the occasional concert.",
+            "high": "Premium subscriptions, trendy clubs, expensive hobbies.",
+            "luxury": "VIP boxes, exclusive clubs, everything on demand."
+          },
+          "necessities": {
+            "street": "Leftovers, soup kitchens, whatever you find.",
+            "squatter": "Cheap soy rations, second-hand clothes.",
+            "low": "Soy food, simple clothes, power and water most of the time.",
+            "middle": "Some real food, decent clothes, reliable supply.",
+            "high": "Fresh food, brand clothing, good doctors.",
+            "luxury": "Gourmet food, designer clothes, a private physician."
+          },
+          "neighborhood": {
+            "aaa": "<p>AAA areas offer the highest security. They are typically luxury and upscale residential districts, and anywhere someone pays for first-class protection. All other categories at least High.</p><p>What to expect:</p><ul><li>Working PanicButton booths</li><li>Foot and vehicle patrols</li><li>Astral security patrols with mages and spirits</li><li>Security drones</li><li>Security technicians (riggers) watching cameras and alarms</li></ul><p>Security forces in AAA zones are the best and log the most hours. A posting to an AAA area is a major promotion, and nobody wants to be demoted for mistakes.</p><p>Even the slightest offenses are pursued immediately, and crimes are never left unsolved, whatever the cost. If a culprit must be presented, one will be. Crime has no place here.</p>",
+            "aa": "<p>AA areas are mostly upscale residential districts and corporations that want round-the-clock security but will not pay for active deterrence. Security and Necessities at least Middle.</p><p>What to expect:</p><ul><li>Patrols around the clock, but less frequent than in AAA areas</li><li>Ordinary officers respond and call specialists if needed</li><li>Response time is extremely fast unless there is an AAA incident</li><li>Working here is also seen as a promotion, so investigations are thorough and fast</li></ul>",
+            "a": "<p>A areas cover most of the city's important locations and many middle-class neighborhoods. Regular police are on duty. Security systems rely mainly on alarms. </p><p>What to expect:</p><ul><li>Numerous PanicButtons</li><li>Neighborhood watches and other security measures</li><li>Security is high, but false alarms are common</li></ul>",
+            "b": "<p>B areas are mainly commercial districts and count as high-crime targets, favorite marks for shadowrunners. </p><p>Standard Knight Errant or Lone Star response:</p><ul><li>4 officers with a magician and/or elite officers on standby</li></ul>",
+            "dc": "<p>These zones are the Low-lifestyle versions of A and B security ratings:</p><ul><li><strong>C:</strong> residential</li><li><strong>D:</strong> commercial</li></ul><ul><li>Rare patrols</li><li>Many PanicButtons out of service</li><li>Little proactive policing; police have to react</li><li>Civilians often distrust security forces</li><li>Many officers start their careers here and try to get out as fast as possible</li></ul><p>Standard response (except covert operations):</p><ul><li>6 to 8 officers in full armor</li><li>One Citymaster armored vehicle</li><li>Two patrol cars</li><li>One combat mage</li><li>Drones often replace officers to avoid injuries</li></ul>",
+            "e": "<p>E areas are slums and house squatters. People live here, but they are not treated as real citizens, so little effort is spent. Comforts at most Low.</p><ul><li>No Lone Star or Knight Errant patrols</li><li>Response only if SINners file a complaint or violence spills into important areas</li></ul><p>Standard response:</p><ul><li>Two Citymasters with 12–15 heavily armored officers each</li><li>One combat rigger per vehicle</li><li>At least two combat mages led by an elite officer</li></ul>",
+            "z": "<p>Z-zones (Zero Zones) are lawless anarchic spaces. Security forces enter only for investigations, and then in combat formation. All other categories are limited to Squatter.</p><p>Standard minimum:</p><ul><li>3 Citymasters driven by riggers</li><li>25–30 heavily armored officers</li><li>Air support from helicopters or VTOLs</li><li>Additional riggers for drone surveillance</li><li>At least 3 combat mages</li><li>3–5 elite officers</li></ul><p>Z-zones are high-risk postings: triple pay and a week off after the operation.</p>"
+          },
+          "security": {
+            "street": "No maglock, a padlock at best.",
+            "squatter": "A cheap maglock.",
+            "low": "Maglock Easy (+0), maybe a janitor.",
+            "middle": "Maglock Standard (−2), alarm system, a security service arrives after a few minutes.",
+            "high": "Maglock Hard (−4), cameras, a guard on site.",
+            "luxury": "Maglock nearly impossible (−6), round-the-clock surveillance, several well-equipped guards."
+          }
+        }
+      },
+      "Warn": {
+        "Entertainment": "Entertainment may be at most one level above Necessities.",
+        "ZZone": "In a Squatter neighborhood (Z) all categories are limited to Squatter.",
+        "ZoneE": "In a Squatter neighborhood (E) Comforts are at most Low.",
+        "ZoneAA": "A High neighborhood (AA) requires Security and Necessities of at least Middle.",
+        "ZoneAAA": "A Luxury neighborhood (AAA) requires all other categories at High or better.",
+        "Thieves": "Comforts exceed Security or Neighborhood: this attracts thieves."
+      }
+    },
+    "Qualities": {
+      "Title": "Lifestyle qualities",
+      "Hint": "These qualities can be chosen for lifestyles. Changes to LP and effect apply to all lifestyles immediately.",
+      "Name": "Name",
+      "Effect": "SWADE effect",
+      "New": "New quality",
+      "NamePlaceholder": "New quality",
+      "EffectPlaceholder": "Effect in SWADE",
+      "Add": "Add quality",
+      "Remove": "Delete quality"
+    },
+    "Settings": {
+      "Open": "Settings",
+      "Close": "Close",
+      "StartOffset": {
+        "Name": "Days already passed",
+        "Hint": "How many days of the first month passed before the first recorded run (0–29)."
+      }
+    }
+  }
+}
