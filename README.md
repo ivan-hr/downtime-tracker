@@ -1,22 +1,24 @@
 # downtime-tracker
 
-Logbuch für Savage Worlds (SWADE) / Savage Shadowrun: Runs mit Beschreibung, Downtime in 5-Tage-Blöcken, Vorhaben der Charaktere und monatliche Lebensstil-Kosten (30 Tage).
+Adventure log for Savage Worlds (SWADE) / Savage Shadowrun: runs with descriptions, downtime in 5-day blocks, character plans, and monthly lifestyle costs (30 days).
+
+Lifestyle costs follow the Advanced Lifestyle system from *Shadowrun, Fourth Edition: Runner's Companion* and were adapted for this Savage Shadowrun table.
 
 ### Installation
 
-Manifest-URL in Foundry unter **Add-on Modules → Install Module** eintragen:
+Paste this manifest into Foundry under **Add-on Modules → Install Module**:
 
 ```
 https://raw.githubusercontent.com/ivan-hr/downtime-tracker/main/module.json
 ```
 
-Foundry braucht dafür ein GitHub-Release mit der Datei `module.zip`. Das Zip muss den Modulordner enthalten (`downtime-tracker/module.json` auf oberster Ebene).
+Foundry needs a GitHub release that contains `module.zip`. The zip must include the module folder (`downtime-tracker/module.json` at the top level).
 
-### Voraussetzungen
+### Requirements
 
 - Foundry VTT 13+
 - System: SWADE 5.2+
 
 ### License
 
-MIT. Siehe [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
