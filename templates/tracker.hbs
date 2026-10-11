@@ -287,6 +287,30 @@
       <p class="dt-description">{{run.description}}</p>
     </div>
     {{/if}}
+    {{#if isGM}}
+    <div class="dt-reward">
+      <span class="dt-label">{{localize "DOWNTIME.Run.Reward"}}</span>
+      <div class="dt-row">
+        <label class="dt-field dt-nuyen">
+          <span>{{localize "DOWNTIME.Run.Nuyen"}}</span>
+          <input type="number" name="runNuyen" min="10000" max="100000" step="1000" value="{{#if run.nuyen}}{{run.nuyen}}{{/if}}" placeholder="10000">
+        </label>
+        <label class="dt-field dt-reward-stat">
+          <span>{{localize "DOWNTIME.Run.Karma"}}</span>
+          <input type="number" name="runKarma" min="0" max="99" step="1" value="{{run.karma}}">
+        </label>
+        <label class="dt-field dt-reward-stat">
+          <span>{{localize "DOWNTIME.Run.Reputation"}}</span>
+          <input type="number" name="runReputation" min="0" max="99" step="1" value="{{run.reputation}}">
+        </label>
+      </div>
+    </div>
+    {{else if run.rewardLabel}}
+    <div class="dt-field">
+      <span>{{localize "DOWNTIME.Run.Reward"}}</span>
+      <p class="dt-description">{{run.rewardLabel}}</p>
+    </div>
+    {{/if}}
     <div class="dt-checks" role="group" aria-label="{{localize "DOWNTIME.Blocks.Label"}}">
       <span class="dt-label">{{localize "DOWNTIME.Blocks.Label"}}</span>
       {{#each checks}}

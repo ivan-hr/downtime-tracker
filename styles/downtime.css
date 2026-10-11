@@ -82,6 +82,20 @@
   flex: 0 0 130px;
 }
 
+.downtime-tracker .dt-reward {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.downtime-tracker .dt-nuyen {
+  flex: 0 0 160px;
+}
+
+.downtime-tracker .dt-reward-stat {
+  flex: 0 0 90px;
+}
+
 .downtime-tracker .dt-btn {
   flex: 0 0 auto;
   width: auto;

@@ -17,6 +17,14 @@ const t = (key, data) => (data ? game.i18n.format(key, data) : game.i18n.localiz
 export const formatNuyen = value => `${Number(value).toLocaleString(game.i18n.lang)} ¥`;
 export const formatLp = lp => (lp > 0 ? `+${lp}` : String(lp).replace("-", "−"));
 
+export function formatRunReward(run) {
+  const parts = [];
+  if (run.nuyen) parts.push(formatNuyen(run.nuyen));
+  if (run.karma) parts.push(t("DOWNTIME.Run.KarmaValue", { value: run.karma }));
+  if (run.reputation) parts.push(t("DOWNTIME.Run.ReputationValue", { value: run.reputation }));
+  return parts.join(" · ");
+}
+
 export function lifestyleFacts(analysis) {
   const lock = analysis.lock.mod
     ? t("DOWNTIME.Lifestyle.LockValue", { label: t(`DOWNTIME.Lifestyle.Lock.${analysis.lock.key}`), mod: analysis.lock.mod })
@@ -186,6 +194,10 @@ function renderRun(month, run) {
   const startsHere = segments.some(s =>
     s.isStart && (s.type === "run" || (s.block === 0 && run.runDays === 0))
   );
+  if (startsHere) {
+    const reward = formatRunReward(run);
+    if (reward) facts.push(`${t("DOWNTIME.Run.Reward")}: ${reward}`);
+  }
   const description = startsHere && run.description
     ? `<p class="dt-j-description">${esc(run.description)}</p>`
     : "";
@@ -237,10 +249,13 @@ function renderOverview(timeline, months, data) {
     const description = run.description
       ? `<p class="dt-j-description">${esc(run.description)}</p>`
       : `<p class="dt-j-muted">${esc(t("DOWNTIME.Journal.NoDescription"))}</p>`;
+    const reward = formatRunReward(run);
+    const rewardLine = reward ? `<p class="dt-j-muted">${esc(`${t("DOWNTIME.Run.Reward")}: ${reward}`)}</p>` : "";
     return `
       <li>
         <div class="dt-j-runlist-head"><strong>${i + 1}. ${esc(run.name)}</strong><span class="dt-j-muted">${esc(days)}</span></div>
         ${description}
+        ${rewardLine}
       </li>`;
   }).reverse().join("");
   return `

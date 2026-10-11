@@ -5,7 +5,9 @@ import {
   MONTH_DAYS,
   SOCKET,
   clampInt,
+  clampNuyen,
   computeTimeline,
+  REWARD_MAX,
   createRun,
   dayInMonth,
   getData,
@@ -19,7 +21,7 @@ import {
   setEntryField,
   totalDays
 } from "./data.js";
-import { costBreakdown, formatLp, formatNuyen, lifestyleFacts, scheduleLifestylePage, writeJournal } from "./journal.js";
+import { costBreakdown, formatLp, formatNuyen, formatRunReward, lifestyleFacts, scheduleLifestylePage, writeJournal } from "./journal.js";
 import { CATEGORIES, EXTRA_PRESETS, LEVELS, ZONE_HELP_GROUPS, analyzeLifestyle, levelsFor, normalizeQuality } from "./lifestyle.js";
 
 const { ApplicationV2, HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
@@ -141,7 +143,7 @@ export class DowntimeTracker extends HandlebarsApplicationMixin(ApplicationV2) {
 
     return Object.assign(context, {
       isGM,
-      run,
+      run: run && { ...run, rewardLabel: formatRunReward(run) },
       runOptions: data.runs
         .map((r, i) => ({ id: r.id, label: `${i + 1}. ${r.name}`, selected: r.id === run?.id }))
         .reverse(),
@@ -512,6 +514,12 @@ export class DowntimeTracker extends HandlebarsApplicationMixin(ApplicationV2) {
       this.#updateRun(run => void (run.description = description));
     } else if (el.name === "runDays") {
       this.#updateRun(run => void (run.runDays = clampInt(el.value, 0, 365, run.runDays)));
+    } else if (el.name === "runNuyen") {
+      this.#updateRun(run => void (run.nuyen = clampNuyen(el.value)));
+    } else if (el.name === "runKarma") {
+      this.#updateRun(run => void (run.karma = clampInt(el.value, 0, REWARD_MAX, 0)));
+    } else if (el.name === "runReputation") {
+      this.#updateRun(run => void (run.reputation = clampInt(el.value, 0, REWARD_MAX, 0)));
     }
   }
 

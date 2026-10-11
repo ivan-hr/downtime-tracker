@@ -1,6 +1,6 @@
 {
   "DOWNTIME": {
-    "Title": "downtime-tracker",
+    "Title": "Downtime Tracker",
     "Status": {
       "Month": "Month {number}",
       "CampaignDay": "Campaign day {day}",
@@ -19,6 +19,12 @@
       "Description": "Description",
       "DescriptionPlaceholder": "What was this run about? Client, goal, what went wrong …",
       "Days": "Duration (days)",
+      "Reward": "Reward",
+      "Nuyen": "Nuyen",
+      "Karma": "Karma",
+      "Reputation": "Reputation",
+      "KarmaValue": "{value} Karma",
+      "ReputationValue": "{value} Reputation",
       "Empty": "No run has been recorded yet.",
       "EmptyGM": "Use “New run” to create the first run."
     },

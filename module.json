@@ -1,6 +1,6 @@
 {
   "id": "downtime-tracker",
-  "title": "downtime-tracker",
+  "title": "Downtime Tracker",
   "description": "Logbuch für Savage Shadowrun: hält Runs mit Beschreibung und die Downtime dazwischen in 5-Tage-Blöcken fest, inklusive Vorhaben der Charaktere und monatlicher Lebensstil-Kosten (30 Tage).",
   "authors": [
     {

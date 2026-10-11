@@ -16,6 +16,9 @@ export const SOCKET = `module.${MODULE_ID}`;
 export const BLOCK_DAYS = 5;
 export const MONTH_DAYS = 30;
 export const MAX_BLOCKS = 6;
+export const NUYEN_MIN = 10000;
+export const NUYEN_MAX = 100000;
+export const REWARD_MAX = 99;
 export const ENTRY_FIELDS = ["plan", "activity"];
 
 export const DEFAULT_ACTIVITIES = [
@@ -73,10 +76,20 @@ function normalizeEntry(entry) {
   };
 }
 
+export function clampNuyen(value, fallback = 0) {
+  if (value === "" || value == null) return fallback;
+  const n = Number.parseInt(value, 10);
+  if (!Number.isFinite(n) || n <= 0) return 0;
+  return Math.min(Math.max(n, NUYEN_MIN), NUYEN_MAX);
+}
+
 export function normalizeRun(run) {
   run.name = String(run.name ?? "");
   run.description = String(run.description ?? "");
   run.runDays = clampInt(run.runDays, 0, 365, 1);
+  run.nuyen = clampNuyen(run.nuyen);
+  run.karma = clampInt(run.karma, 0, REWARD_MAX, 0);
+  run.reputation = clampInt(run.reputation, 0, REWARD_MAX, 0);
   run.blocks = clampInt(run.blocks, 0, MAX_BLOCKS, 0);
   run.assignments = Array.from({ length: MAX_BLOCKS }, (_, i) =>
     Array.isArray(run.assignments?.[i]) ? run.assignments[i].map(normalizeEntry) : []
