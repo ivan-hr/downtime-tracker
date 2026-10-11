@@ -39,6 +39,11 @@ export class DowntimeTracker extends HandlebarsApplicationMixin(ApplicationV2) {
     return this.#instance;
   }
 
+  async close(options) {
+    if (this.constructor.#instance === this) this.constructor.#instance = null;
+    return super.close(options);
+  }
+
   static DEFAULT_OPTIONS = {
     id: "downtime-tracker",
     classes: ["downtime-tracker"],

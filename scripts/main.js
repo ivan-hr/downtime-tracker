@@ -2,8 +2,18 @@ import { MODULE_ID, SOCKET, handleSocket, registerSettings } from "./data.js";
 import { scheduleLifestylePage } from "./journal.js";
 import { DowntimeTracker } from "./tracker.js";
 
+function openFromControl(event, active) {
+  if (active === false) return;
+  if (event && !["click", "pointerup", "pointerdown", "mousedown"].includes(event.type)) return;
+  if (!event) return;
+  DowntimeTracker.open();
+}
+
 Hooks.once("init", () => {
-  registerSettings(() => DowntimeTracker.instance?.render());
+  registerSettings(() => {
+    const app = DowntimeTracker.instance;
+    if (app?.rendered) app.render();
+  });
   game.modules.get(MODULE_ID).api = { open: () => DowntimeTracker.open() };
 });
 
@@ -22,11 +32,11 @@ Hooks.on("getSceneControlButtons", controls => {
     button: true,
     visible: true,
     order: 100,
-    onChange: () => DowntimeTracker.open()
+    onChange: openFromControl
   };
   const tokens = Array.isArray(controls) ? controls.find(c => c.name === "token") : controls.tokens;
   if (!tokens?.tools) return;
-  if (Array.isArray(tokens.tools)) tokens.tools.push({ ...tool, onClick: tool.onChange });
+  if (Array.isArray(tokens.tools)) tokens.tools.push({ ...tool, onClick: openFromControl });
   else tokens.tools[MODULE_ID] = tool;
 });
 
