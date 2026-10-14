@@ -112,15 +112,18 @@ export class DowntimeTracker extends HandlebarsApplicationMixin(ApplicationV2) {
   static PARTS = {
     main: {
       template: `modules/${MODULE_ID}/templates/tracker.hbs`,
-      scrollable: [".dt-body"]
+      scrollable: ["", ".dt-body", ".dt-help", ".dt-quality-defs"]
     }
   };
+
+  static #SCROLL_SELECTORS = [".window-content", ".dt-body", ".dt-help", ".dt-quality-defs"];
 
   selectedRunId = null;
   showAllMonths = false;
   showSettings = false;
   tab = "log";
   showHelp = false;
+  #scroll = {};
 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
@@ -399,6 +402,41 @@ export class DowntimeTracker extends HandlebarsApplicationMixin(ApplicationV2) {
         ariaLabel: `${game.i18n.format("DOWNTIME.Month.Label", { number: month.number })}: ${month.runs.map(r => r.name).join(", ")}`
       };
     });
+  }
+
+  #captureScroll() {
+    const root = this.element;
+    this.#scroll = {};
+    if (!root) return;
+    for (const sel of DowntimeTracker.#SCROLL_SELECTORS) {
+      const el = root.querySelector(sel);
+      if (el) this.#scroll[sel] = { top: el.scrollTop, left: el.scrollLeft };
+    }
+  }
+
+  #restoreScroll() {
+    const apply = () => {
+      const root = this.element;
+      if (!root) return;
+      for (const [sel, pos] of Object.entries(this.#scroll)) {
+        const el = root.querySelector(sel);
+        if (!el) continue;
+        el.scrollTop = pos.top;
+        el.scrollLeft = pos.left;
+      }
+    };
+    apply();
+    requestAnimationFrame(apply);
+  }
+
+  async _preRender(context, options) {
+    this.#captureScroll();
+    return super._preRender?.(context, options);
+  }
+
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    this.#restoreScroll();
   }
 
   async _onFirstRender(context, options) {
